@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import initStore from 'root/store';
 import {setDim, setText} from 'actions/appActions';
 import { syncStorage} from 'actions/storageActions';
-import Layout from 'components/Layout';
+import Shell from 'components/Shell';
 import Loader from 'components/Loader';
 import TextField from 'material-ui/TextField';
 
@@ -31,7 +31,7 @@ class App extends Component {
 
    render() {
     return (
-    <Layout>
+    <Shell>
       <Head title="Home">
       </Head>
       <Nav />
@@ -43,7 +43,7 @@ class App extends Component {
          value={this.props.textValue}
          onChange={this.handleChange} />
      <Loader />
-    </Layout>
+    </Shell>
     );
    }
 }

@@ -5,7 +5,7 @@ import withRedux from 'next-redux-wrapper';
 import initStore from 'root/store';
 import withMui from 'components/hocs/withMui';
 import { bindActionCreators } from 'redux';
-import Layout from 'components/Layout';
+import Shell from 'components/Shell';
 import Loader from 'components/Loader';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
@@ -30,7 +30,7 @@ class About extends Component {
 
   render() {
     return (
-    <Layout>
+    <Shell>
       <Head title="About">
       </Head>
       <Nav />
@@ -39,7 +39,7 @@ class About extends Component {
       {this.props.textValue}
      <Loader />
 
-    </Layout>
+    </Shell>
     );
    }
 }
