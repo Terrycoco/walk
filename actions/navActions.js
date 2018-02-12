@@ -19,7 +19,7 @@ export function requestRoute(route, dir, fromRoute) {
     Router.push(route);
     setTimeout(function() {
       dispatch(toggleMenu(false));
-    }, 300);
+    }, 400);
   }
 }
 
@@ -30,7 +30,7 @@ export function routeLoaded() {
 }
 
 
-function setRoute(payload) {
+export function setRoute(payload) {
   return {
       type: n.CHANGE_ROUTE,
       payload: payload

@@ -21,8 +21,8 @@ class NEWPAGE extends Component {
 
   render() {
     return (
-    <Shell>
-      <Head title="NEWPAGE" />
+    <Shell pageTitle="Create A Walk">
+
 
     </Shell>
     );

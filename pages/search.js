@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Head from 'components/Head';
-import Nav from 'components/Nav';
 import withRedux from 'next-redux-wrapper';
 import withMui from 'components/hocs/withMui';
 import { bindActionCreators } from 'redux';
@@ -21,8 +19,8 @@ class NEWPAGE extends Component {
 
   render() {
     return (
-    <Shell>
-      <Head title="NEWPAGE" />
+    <Shell pageTitle="Find A Walk">
+
 
     </Shell>
     );

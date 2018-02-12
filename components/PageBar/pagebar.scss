@@ -3,8 +3,8 @@
 @import '../../styles/_flex';
 
 .PageBar {
+  width: 100%;
   @include justify-self-start;
-  min-width: 100vw;
   @include hbox;
   @include justify-between;
   @include align-center;

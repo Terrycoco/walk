@@ -20,8 +20,7 @@ class MyWalks extends Component {
 
   render() {
     return (
-    <Shell>
-      <Head title="My Walks" />
+    <Shell pageTitle="My Walks">
     </Shell>
     );
    }

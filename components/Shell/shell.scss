@@ -25,7 +25,6 @@ html, body {
   }
 
     .PAGE {
-      opacity: 0;
       height: 100%; //set in code
       width: 100%; //set in code
       @include vbox;
@@ -36,11 +35,13 @@ html, body {
         -o-transform: translatez(0);
         -webkit-transform: translateZ(0);
         -webkit-font-smoothing: antialiased; /* seems to do the same in Safari Family of Browsers*/
+      opacity: 0;
     }
 
-    .PAGE .visible {
-      opacity: 1;
-    }
+   .PAGE .show {
+     opacity: 1;
+   }
+
     //for flipper pages
     .PAGE-ABSOLUTE {
       position: relative;
@@ -140,3 +141,38 @@ html, body {
 .no-pad {
   padding: 0;
 }
+
+//FADE IN
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear.fade-appear-active {
+   opacity: 1;
+   transition: all 300ms ease-in-out;
+  }
+
+.fade-enter  {
+  .fade {
+    opacity: 0;
+  }
+
+}
+
+.fade-enter.fade-enter-active  {
+  .fade {
+    opacity: 1;
+    transition: all 600ms ease-in-out;
+  }
+  
+} 
+
+.fade-leave  {
+  opacity: 1;
+
+}
+
+.fade-leave.fade-leave-active  {
+    opacity: 0;
+    transition: all 3ms ease-in-out;
+} 

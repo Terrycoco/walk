@@ -15,10 +15,9 @@ class Link extends Component {
   }
   render() {
     return (
-      <div className="homelink" >
+      <div className="homelink" onClick={this.handleClick} >
         <style dangerouslySetInnerHTML={{__html: stylesheet}}></style>
-        <span key={this.props.key} 
-              onClick={this.handleClick}>{this.props.children}</span>
+        <span key={this.props.key}>{this.props.children}</span>
       </div>
     );
   }

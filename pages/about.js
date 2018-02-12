@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import Head from 'components/Head';
 import Nav from 'components/Nav';
 import withRedux from 'next-redux-wrapper';
 import initStore from 'root/store';
 import withMui from 'components/hocs/withMui';
 import { bindActionCreators } from 'redux';
-import { toggleMenu } from 'actions/navActions';
 import Shell from 'components/Shell';
 import {getVer} from 'utils/config';
 import Spacer from 'components/Misc/Spacer';
@@ -22,14 +20,13 @@ class About extends Component {
    }
 
   componentWillMount() {
+
   }
 
 
   render() {
     return (
-    <Shell title="About Sharewalks">
-      <Head title="Sharewalks">
-      </Head>
+    <Shell pageTitle="About Sharewalks">
      <div className="CONTENT">
          <div className="COLUMN-1">
           <div className="FORM">
@@ -40,7 +37,7 @@ class About extends Component {
              <h4>Founder </h4>   
                 <h5>Terry Marr</h5>
               
-               <p>ShareWalks has grown out of my two passions: Travel and Learning. I believe the best way to get to know a place is to <b>explore it on foot</b>. That means neighborhood by neighborhood. While guide books always hit the major, touristy sights, they are often lacking in information about where the locals live, work, eat, drink and meet each other.  I always wished I had a local resident who could take me around and teach me about their neighborhood.</p>
+               <p>ShareWalks has grown out of my two passions: <strong>Travel</strong> and <strong>Learning</strong>. I believe the best way to get to know a place is to <b>explore it on foot</b>. That means neighborhood by neighborhood. While guide books always hit the major, touristy sights, they are often lacking in information about where the locals live, work, eat, drink and meet each other.  I always wished I had a local resident who could take me around and teach me about their neighborhood.</p>
                <p>It is my hope that ShareWalks will fill in that gap, by allowing anyone to create walks on any topic that interests them, such as local history, friendliest watering holes, notable architecture, where to find the best food, etc.   </p>
               
 
@@ -113,7 +110,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleMenu: bindActionCreators(toggleMenu, dispatch)
+
   };
 }
 
