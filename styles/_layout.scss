@@ -1,8 +1,5 @@
-@import '../../styles/normalize.css';
-@import '../../styles/_typography.scss';
-@import '../../styles/_spacing.scss';
-@import '../../styles/_colors.scss';
-@import '../../styles/_flex.scss';
+@import './_spacing';
+@import './_flex';
 
 html, body {
   width: 100%;
@@ -16,7 +13,6 @@ html, body {
   position: relative;
   overflow: hidden;
 }
-
 
   //full height slider
   .SLIDER {
@@ -69,6 +65,19 @@ html, body {
 
 
 
+.VBOX {
+ @include vbox;
+ max-width: $col_max_width;
+ -webkit-align-self: center; //center on the page
+ align-self: center;
+}
+
+.HBOX {
+  @include hbox;
+  @include align_center;
+}
+
+
 
 
 .PAGE-ABSOLUTE .FLIP-CONTENT {
@@ -85,9 +94,11 @@ html, body {
 //this is a column with padding all around
 .FORM {
   display: block;
+  width: 100%;
   height: auto;
-  @include with-padding;
-  max-width: $col_max_width;
+  padding-left: $form_padding;
+  padding-right: $form_padding;
+  padding-top: $form_padding;
 }
 
 
@@ -104,7 +115,9 @@ html, body {
     height: auto;
     @include flexchild-full; //all one column width
   }
-
+  .FORM {
+    width: 100%;
+  }
   .COLUMN-1 {
     padding-top: 4%;  //only top gets padding
   }

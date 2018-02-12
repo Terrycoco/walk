@@ -35,7 +35,7 @@
 		}
 	});
 
- // The route for any requests from the googleapis origin
+ // The route for any requests from the external origin
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
       name: 'sharewalksapi',

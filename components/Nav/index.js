@@ -1,58 +1,81 @@
+import React, {Component} from 'react';
 import Head from 'components/Head';
-import Link from 'next/link';
+import {requestRoute} from 'actions/navActions';
+import PageBar from 'components/PageBar';
+import Link from './Link';
+//import {isProd} from 'utils/environment';
+import * as actions from 'actions/navActions';
+import {connect} from 'react-redux';
+import sizing from 'styles/sizing';
+//import Page from 'components/Page';
 
-const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+const stylesheet = require('./nav.scss');
 
-const Nav = () => (
-  <nav>
-      <style dangerouslySetInnerHTML={{__html: `
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: flex-start;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: block;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}}></style>
-    <ul>
-      <li>
-        <Link prefetch href="/">
-          <a>Home</a>
-        </Link>
-      </li>
+let imgUrl = require('images/moccasins_sm.jpg');
+let styles = {
+  home: {
+    height: '100%',
+    width: '100%',
+    backgroundImage: 'url(' + imgUrl + ')',
+    backgroundSize: 'cover',
+    overflow: 'hidden',
+    backgroundPosition: 'bottom center'
+  }
+};
+
+class Home extends Component {
+
+  componentDidMount() {
+    //some resetting here -- create page back to 0
+    // this.props.setCreatePageIdx(0);
+  }
+
+  // signIn() {
+  //   this.props.requestRoute("signin", "left");
+  // }
+
+  // signOut() {
+  //   this.props.logout();
+  // }
+
+  render() {
+    let iconRight, onRight;
+    let homestyle = styles.home;
+    if (this.props.loggedIn) {
+      iconRight = 'Sign Out';
+     // onRight = this.signOut;
+    } else {
+      iconRight = "Sign In";
+     // onRight = this.signIn;
+    }
+    return (      
+      <div className="HOME" style={homestyle}>
+      <PageBar title="ShareWalks" leftIcon="home" rightIcon="Sign In"/>
+      <style dangerouslySetInnerHTML={{__html: stylesheet}}></style>
+        <div className="link-menu readable">
+           <Link  className="homelink" key="search" to="search" fromDir="right"><span>Find A Walk</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
+           <Link  className="homelink" key="create" to="create" fromDir="right"><span>Create A Walk</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
+           <Link  className="homelink" key="mywalks" to="mywalks" fromDir="right"><span>My Walks</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
+           <Link  className="homelink" key="about" to="/about" fromDir="right"><span>About ShareWalks</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
      
-      <li>
-        <Link href="/about" >
-          <a>About</a>
-        </Link>
-      </li>
+        </div>
+        <div className="feet" />
+        </div>
+    );
+  }
+}
 
-      <li>
-        <Link href="/about?id=3" >
-          <a>About With ID</a>
-        </Link>
-      </li>
+function mapStateToProps(state) {
+  return {
+   // isAdmin: state.auth.aCheck,
+   // loggedIn: state.auth.authenticated
+    // height: state.app.height,
+    // browser: state.browser
+  };
+}
 
-    </ul>
+export default connect(mapStateToProps, actions)(Home);
 
-  </nav>
-)
 
-export default Nav
+     // {(this.props.isAdmin ?  <Link  className="homelink" key="admin" to="admin" fromDir="right"><span>Admin</span><img className="right-icon" src="/images/right_arrow.png"/></Link> : null)}
+          //  {(this.props.isAdmin ?  <Link  className="homelink" key="test" to="test" fromDir="right"><span>Test</span><img className="right-icon" src="/images/right_arrow.png"/></Link> : null)}

@@ -18,6 +18,13 @@ $pagebar_with_header_md: calc(#{$pagebar_height_md} + #{$footer_height_md} );
   max-width: $col_max_width;
 }
 
+@mixin with-padding {
+  padding-left: 5%;
+  padding-right: 10%; //for scrollbar
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
 .readable {
   width: 100%;
   max-width: $col_max_width;
@@ -76,3 +83,7 @@ hr.underline {
   margin-top: .5em;
 }
 
+ul {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+}

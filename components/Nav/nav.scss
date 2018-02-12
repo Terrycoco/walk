@@ -1,0 +1,83 @@
+@import '../../styles/_colors';
+@import '../../styles/_spacing';
+//@import '../../styles/_layout';
+@import '../../styles/_flex';
+
+//IN PLACE OF CONTENT (note: also styles inline see: Home route)
+.HOME {
+  @include flexchild-grow;
+  @include vbox; //parent of main-menu
+  @include justify-start;
+  @include align-center;
+  z-index: 2000;
+}
+
+.link-menu {
+  @include flexchild-grow;
+  overflow: hidden;
+  background: transparent;
+  width: 100;
+  @include vbox;
+}
+
+//links container
+.link-container {
+  @include flexchild-grow; //rest of vert space
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  @include vbox;
+}
+
+//transparent block for feet to show through
+.feet {
+  flex: none;
+  height: 30%;
+  background: transparent;
+  @include justify-self-end;
+}
+
+.homelink {
+  @include flexchild-grow;
+  border-radius: 3px;
+  background-color: rgba($light, .3);
+  @include hbox;
+  @include  justify-between;
+  @include align-center;
+}
+.homelink:hover {
+  background: rgba($light, .4)
+}
+
+// text in link
+.homelink span {
+  width: 100%;
+  @include hbox;
+  @include justify-between;
+  @include align-center;
+  color: $dark;
+  padding-left: 7%;
+  padding-right: 7%;
+  text-decoration: none;
+  margin-bottom: 3px;
+}
+
+.right-icon {
+  opacity: .4;
+  height: 1.5em;
+  transform: translate3d(-2px,0,0);  //move left
+}
+
+@media all and (min-width: 769px) {
+  .link-container {
+    overflow-y: auto;
+    top: 0;
+  }
+
+  .homelink {
+    font-size: 1.3em;
+    line-height: $pagebar_height_md;
+    height:  $pagebar_height_md;
+    margin: 0 3px 3px 3px;
+  }
+}

@@ -8,7 +8,6 @@ import initStore from 'root/store';
 import {setDim, setText} from 'actions/appActions';
 import { syncStorage} from 'actions/storageActions';
 import Shell from 'components/Shell';
-import Loader from 'components/Loader';
 import TextField from 'material-ui/TextField';
 
 class App extends Component {
@@ -21,6 +20,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+   // this.props.toggleMenu(true);
   }
 
   handleChange = (event) => {
@@ -29,27 +29,17 @@ class App extends Component {
     this.props.syncStorage(); //persist 
   }
 
-   render() {
+  render() {
     return (
-    <Shell>
-      <Head title="Home">
+    <Shell title="Sharewalks" >
+      <Head title="Sharewalks">
       </Head>
-      <Nav />
-      <p>Store will persist across pages and browser refreshes!</p>
-      <TextField
-         type="text"
-         id="text-field-controlled"
-         floatingLabelText="Type a value:"
-         value={this.props.textValue}
-         onChange={this.handleChange} />
-     <Loader />
     </Shell>
     );
-   }
+  }
 }
 
 function mapStateToProps(state) {
-  console.log('store: ', state);
   return {
     browser: state.browser,
     height: state.app.height,

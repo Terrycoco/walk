@@ -99,7 +99,8 @@ export default getMuiTheme({
       labelColor: theme.primary1Color,
       labelDisabledColor: theme.disabledColor,
       fontSize: '.7em'
-    },
+    }
+
 });
 
  // theme as applied to components:

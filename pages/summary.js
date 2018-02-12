@@ -23,7 +23,13 @@ class NEWPAGE extends Component {
     return (
     <Shell>
       <Head title="NEWPAGE" />
-
+      <PageBar 
+         title="New Page"
+         iconLeft=
+         onLeft=
+         iconRight=
+         onRight=
+      />
     </Shell>
     );
    }

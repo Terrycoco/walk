@@ -1,0 +1,70 @@
+@import '../../styles/_colors';
+@import '../../styles/_spacing';
+@import '../../styles/_flex';
+
+.PageBar {
+  @include justify-self-start;
+  min-width: 100vw;
+  @include hbox;
+  @include justify-between;
+  @include align-center;
+  background-color: $primary;
+  height: $pagebar_height_sm;
+  //x-offset of light source;
+  //y-offset of light source
+  //blur effect (non-uniformness)
+  //spread (contraction)
+  -webkit-box-shadow: 0 3px 3px 0 #ddd;
+     -moz-box-shadow: 0 3px 3px 0 #ddd;
+          box-shadow: 0 3px 3px 0 #ddd;
+  padding-left: 5px;
+  padding-right: 3px;
+  color: $light;
+  z-index: 1200;
+}
+
+
+.PageBar .title {
+  @include align-self-center;
+  flex: 1 0 50%;
+  text-align: center;
+  color: white;
+}
+
+.Left, .Right {
+  flex: 1 0 15%;
+  display: flex;
+  height: $pagebar_height_sm;
+}
+
+.Right {
+  font-size: .7em;
+  padding-right: 1em;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+}
+
+.Left {
+  min-width: 1.6em;
+  font-size: .7em;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 3px;
+}
+.PageBar img {
+  width: 1.6em;
+  height: 1.6em;
+}
+
+//large
+@media all and (min-width: 769px) {
+  .PageBar {
+     flex: 0 0 $pagebar_height_md;
+  }
+
+   .Left, .Right {
+    height: $pagebar_height_md;
+  }
+
+}
