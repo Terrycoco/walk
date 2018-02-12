@@ -6,7 +6,7 @@ import withMui from 'components/hocs/withMui';
 import { bindActionCreators } from 'redux';
 import initStore from 'root/store';
 import Shell from 'components/Shell';
-import PageBar from 'components/PageBar';
+
 
 class NEWPAGE extends Component {
   static async getInitialProps() {
@@ -23,13 +23,7 @@ class NEWPAGE extends Component {
     return (
     <Shell>
       <Head title="NEWPAGE" />
-      <PageBar 
-         title="New Page"
-         iconLeft=
-         onLeft=
-         iconRight=
-         onRight=
-      />
+
     </Shell>
     );
    }
@@ -45,4 +39,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default withRedux(initStore, mapStateToProps = null, mapDispatchToProps = null )(withMui(NEWPAGE));
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps )(withMui(NEWPAGE));

@@ -1,6 +1,7 @@
 const n = require('actions/types').nav;
 import Router from 'next/router';
 
+
 export function goBack() {
   return {
     type: n.GO_BACK
@@ -14,10 +15,11 @@ export function requestRoute(route, dir, fromRoute) {
     if (fromRoute != undefined) {
       payload.fromRoute = fromRoute;
     }
-    if (route[0] != '/') { route = '/' + route};
+    if (route[0] != '/') { route = '/' + route; }
     Router.push(route);
-    dispatch(setRoute(payload));
-    dispatch(toggleMenu(false));
+    setTimeout(function() {
+      dispatch(toggleMenu(false));
+    }, 300);
   }
 }
 
@@ -30,7 +32,7 @@ export function routeLoaded() {
 
 function setRoute(payload) {
   return {
-      type: n.REQUEST_ROUTE,
+      type: n.CHANGE_ROUTE,
       payload: payload
   };
 }

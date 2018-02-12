@@ -12,22 +12,30 @@
 
   //precached urls
   toolbox.precache([
-     'https://use.edgefonts.net/lato.js',
-     'https://use.fontawesome.com/6ba5b9b7c9.js'
+     'https://use.edgefonts.net/lato.js'
   ]);
 
-  	// //the route for the icons
-	toolbox.router.get('/about(.*)', global.toolbox.cacheFirst, {
+ //  how to cache specific pages?
+	// toolbox.router.get('/', global.toolbox.cacheFirst, {
+	// 	cache: {
+	// 		name: 'home',
+	// 		ignoreSearch: false, //ignore the parameter part of url
+	// 		maxEntries: 20,
+	// 		maxAgeSeconds: DAY * 7 //cache for a week
+	// 	}
+	// });
+  
+	// //the route for the icons
+	toolbox.router.get('/static/icons(.*)', global.toolbox.cacheFirst, {
 		cache: {
-			name: 'about',
-			ignoreSearch: false, //ignore the parameter part of url
+			name: 'png',
 			maxEntries: 20,
 			maxAgeSeconds: DAY * 7 //cache for a week
 		}
 	});
-  
-	// //the route for the icons
-	toolbox.router.get('/static/icons(.*)', global.toolbox.cacheFirst, {
+
+		//the route for the images
+	toolbox.router.get('/static/images(.png)', global.toolbox.cacheFirst, {
 		cache: {
 			name: 'png',
 			maxEntries: 20,
@@ -42,7 +50,6 @@
       maxEntries: 10,
       maxAgeSeconds: 86400 // cache for a day
     },
-
     origin: /api\.sharewalks\.com$/,
     // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 2

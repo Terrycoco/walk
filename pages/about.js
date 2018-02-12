@@ -5,8 +5,8 @@ import withRedux from 'next-redux-wrapper';
 import initStore from 'root/store';
 import withMui from 'components/hocs/withMui';
 import { bindActionCreators } from 'redux';
+import { toggleMenu } from 'actions/navActions';
 import Shell from 'components/Shell';
-import TextField from 'material-ui/TextField';
 import {getVer} from 'utils/config';
 import Spacer from 'components/Misc/Spacer';
 
@@ -18,10 +18,12 @@ class About extends Component {
   }
   
   componentDidMount()  {
+    // this.props.toggleMenu(false);
    }
 
   componentWillMount() {
   }
+
 
   render() {
     return (
@@ -34,6 +36,7 @@ class About extends Component {
            
              <h4>Mission</h4>
                 <h5>Walk  Learn  Share</h5>
+
              <h4>Founder </h4>   
                 <h5>Terry Marr</h5>
               
@@ -103,14 +106,15 @@ function mapStateToProps(state) {
     browser: state.browser,
     height: state.app.height,
     width: state.app.width,
-    textValue: state.app.textValue
+    textValue: state.app.textValue,
+    currentRoute: state.nav.currentRoute
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-
-  }
+    toggleMenu: bindActionCreators(toggleMenu, dispatch)
+  };
 }
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(withMui(About));

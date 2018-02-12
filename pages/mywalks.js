@@ -8,22 +8,20 @@ import initStore from 'root/store';
 import Shell from 'components/Shell';
 
 
-class NEWPAGE extends Component {
+class MyWalks extends Component {
   static async getInitialProps() {
   }
   componentWillMount() {
 
   }
   componentDidMount()  {
-
   }
 
 
   render() {
     return (
     <Shell>
-      <Head title="NEWPAGE" />
-
+      <Head title="My Walks" />
     </Shell>
     );
    }
@@ -36,7 +34,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-  }
+
+  };
 }
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps )(withMui(NEWPAGE));
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps )(withMui(MyWalks));

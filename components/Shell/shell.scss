@@ -25,6 +25,7 @@ html, body {
   }
 
     .PAGE {
+      opacity: 0;
       height: 100%; //set in code
       width: 100%; //set in code
       @include vbox;
@@ -35,6 +36,10 @@ html, body {
         -o-transform: translatez(0);
         -webkit-transform: translateZ(0);
         -webkit-font-smoothing: antialiased; /* seems to do the same in Safari Family of Browsers*/
+    }
+
+    .PAGE .visible {
+      opacity: 1;
     }
     //for flipper pages
     .PAGE-ABSOLUTE {

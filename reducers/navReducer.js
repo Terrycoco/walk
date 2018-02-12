@@ -16,7 +16,7 @@ export default function(state=INITIAL_STATE, action) {
     case n.SET_FLIPPED:
      return {...state, flipped: action.payload};
     case n.CHANGE_ROUTE:
-      return {...state, currentRoute: action.payload.route, history: state.history.concat([action.payload.route])};
+      return {...state, currentRoute: action.payload.route};
     case n.GO_BACK:
       return  {...state, nextRoute: action.prevRoute, fromDir: "left"};
     case n.REQUEST_ROUTE: 

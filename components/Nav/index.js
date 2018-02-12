@@ -55,7 +55,7 @@ class Home extends Component {
         <div className="link-menu readable">
            <Link  className="homelink" key="search" to="search" fromDir="right"><span>Find A Walk</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
            <Link  className="homelink" key="create" to="create" fromDir="right"><span>Create A Walk</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
-           <Link  className="homelink" key="mywalks" to="mywalks" fromDir="right"><span>My Walks</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
+           <Link  className="homelink" key="mywalks" to="/mywalks" fromDir="right"><span>My Walks</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
            <Link  className="homelink" key="about" to="/about" fromDir="right"><span>About ShareWalks</span><img className="right-icon" src="static/images/right_arrow.png"/></Link>
      
         </div>

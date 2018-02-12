@@ -11,10 +11,6 @@ import PageBar from 'components/PageBar';
 import Drawer from 'material-ui/Drawer';
 import Nav from 'components/Nav';
 
-
-
-
-
 class Shell extends Component {
   getInitialProps() {
     
@@ -23,7 +19,8 @@ class Shell extends Component {
     super(props);
     this.state = {
       isAbsolute:  props.isAbsolute || false,
-      menuOpen: false
+      menuOpen: false,
+      className: 'PAGE'
     };
     this.bound_onResize = this.onResize.bind(this);
   }
@@ -40,6 +37,8 @@ class Shell extends Component {
     this.bound_onResize();
     window.addEventListener('resize', this.bound_onResize);
   }
+
+
 
 
   componentWillUnmount() {
@@ -66,13 +65,13 @@ class Shell extends Component {
 
   render() {
     let drawerWidth = this.props.width;
-    let classname = (this.state.isAbsolute ? "PAGE-ABSOLUTE" : 'PAGE');
+    //let classname = (this.state.isAbsolute ? "PAGE-ABSOLUTE" : 'PAGE');
     return (
-    <div className="APP">
-      <Head title="ShareWalks" style={{height: this.props.height, width: this.props.width, overflowY: 'hidden'}} />
+    <div className="APP" style={{height: this.props.height, width: this.props.width, overflowY: 'hidden'}}>
+      <Head title="ShareWalks"  />
       <style dangerouslySetInnerHTML={{__html: stylesheet}}></style>
       <div id="page" ref="page" 
-         className={classname} 
+         className={this.state.classname} 
          style={{height: this.props.height, width: this.props.width, overflowY: 'hidden'}}
          onClick={this.closeDrawer}
           >
@@ -80,7 +79,9 @@ class Shell extends Component {
              title={this.props.title || "ShareWalks"}
              iconLeft="home"
              onLeft={this.toggleDrawer} />
-         {this.props.children}
+          <div style={{height: this.props.height, width: this.props.width, overflowY: 'auto'}}>
+             {this.props.children}
+         </div>
       </div>
       <Drawer 
            open={this.props.menuOpen}
